@@ -1,0 +1,92 @@
+@import '_reset.scss';
+@import './_common.scss';
+
+
+.pyg_header {
+    padding: 5px;
+}
+
+.pyg_view {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+
+    .pyg_nav {
+        padding: 10px;
+
+        >a {
+            width: 25%;
+            float: left;
+            text-align: center;
+
+            img {
+                display: inline-block;
+                width: 80px;
+            }
+        }
+    }
+
+    .goods {
+        padding: 0 10px;
+
+        .goods_category {
+            width: 100%;
+
+            .goods_title {
+
+                img {
+                    display: block;
+                    width: 100%;
+                    background-color: #fff;
+                    margin-top:5px;
+                }
+            }
+
+            .goods_intro {
+                list-style: none;
+                .goods_list {
+                    float: left;
+                    width: 49%;
+                    background-color: #fff;
+                    margin-top: 5px;
+                    padding:10px 12px;
+
+                    img {
+                        width: 100%;
+                        display: block;
+
+                    }
+
+                    .name {
+                        font-size: 13px;
+                        color: #333;
+                        line-height: 22px;
+                        text-align: left;
+                        height: 45px;
+                    }
+
+                    .price {
+                        color: #e92322;
+                        font-size: 16px;
+                        text-align: left;
+                        line-height: 24px;
+
+                    }
+
+                    a {
+                        text-align: center;
+                        width: 100%;
+                    }
+                }
+
+                .goods_list:nth-of-type(even) {
+                    margin-left: 2%;
+
+                }
+            }
+        }
+
+    }
+
+
+}

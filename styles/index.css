@@ -1,0 +1,163 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 45px 0 60px 0;
+}
+
+.clearfix:after {
+  content: "020";
+  display: block;
+  font-size: 0px;
+  line-height: 0px;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.pyg_header {
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  padding: 5px;
+}
+
+.pyg_footer {
+  width: 100%;
+  height: 55px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 4px 0;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.pyg_footer > a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  color: #666;
+}
+
+.pyg_footer > a.active {
+  color: orange;
+}
+
+.pyg_header {
+  padding: 5px;
+}
+
+.pyg_view {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.pyg_view .pyg_nav {
+  padding: 10px;
+}
+
+.pyg_view .pyg_nav > a {
+  width: 25%;
+  float: left;
+  text-align: center;
+}
+
+.pyg_view .pyg_nav > a img {
+  display: inline-block;
+  width: 80px;
+}
+
+.pyg_view .goods {
+  padding: 0 10px;
+}
+
+.pyg_view .goods .goods_category {
+  width: 100%;
+}
+
+.pyg_view .goods .goods_category .goods_title img {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  margin-top: 5px;
+}
+
+.pyg_view .goods .goods_category .goods_intro {
+  list-style: none;
+}
+
+.pyg_view .goods .goods_category .goods_intro .goods_list {
+  float: left;
+  width: 49%;
+  background-color: #fff;
+  margin-top: 5px;
+  padding: 10px 12px;
+}
+
+.pyg_view .goods .goods_category .goods_intro .goods_list img {
+  width: 100%;
+  display: block;
+}
+
+.pyg_view .goods .goods_category .goods_intro .goods_list .name {
+  font-size: 13px;
+  color: #333;
+  line-height: 22px;
+  text-align: left;
+  height: 45px;
+}
+
+.pyg_view .goods .goods_category .goods_intro .goods_list .price {
+  color: #e92322;
+  font-size: 16px;
+  text-align: left;
+  line-height: 24px;
+}
+
+.pyg_view .goods .goods_category .goods_intro .goods_list a {
+  text-align: center;
+  width: 100%;
+}
+
+.pyg_view .goods .goods_category .goods_intro .goods_list:nth-of-type(even) {
+  margin-left: 2%;
+}
+/*# sourceMappingURL=index.css.map */
