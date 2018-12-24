@@ -1,0 +1,57 @@
+@import '_reset.scss';
+@import './_common.scss';
+
+.pyg_view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+   .pyg_cateLeft{
+       width: 100px;
+       height: 100%;
+       overflow:hidden;
+        >ul {
+            >li {
+                font-size: 15px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                border-bottom: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+                &.active{
+                    border-left: 3px solid #0094ff;
+                    color:#0094ff;
+                    background-color: #fff;
+                    border-right: none;
+                }
+            }
+    }
+   }
+
+    .cateRight {
+        width: 100%;
+        flex: 1;
+        overflow: hidden;
+        background-color: #fff;
+        .cate_rightBox{
+            >p{
+                color:#0094ff;
+                padding: 10px;
+            }
+            ul{
+                list-style: none;
+                >li{
+                    width: 33.3%;
+                    float: left;
+                    text-align: center;
+                    img{
+                        width: 80%;
+                    }
+                    p{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

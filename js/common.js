@@ -6,5 +6,10 @@ $(function(){
     $.ajaxSettings.beforeSend=function(xhr,obj){
         obj.url=baseUrl+obj.url
         // 这里的obj里面包含着ajax请求的所有数据
+        $("body").addClass("loadding");
     }
+    $.ajaxSettings.complete=function(){
+        $("body").removeClass("loadding")
+    }
+  
 })
