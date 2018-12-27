@@ -1,8 +1,11 @@
+// 如果想获取异步数据的返回值
+// 则需要添加回调函数
 $(function () {
     render();
     var globalData, myScroll;
 
     function getCategories() {
+        // $.get("../catedata.json",function(res){
         $.get("categories", function (res) {
             if (res.meta.status === 200) {
                 globalData = res.data;
@@ -27,6 +30,7 @@ $(function () {
             var localData = JSON.parse(localDataStr);
             //  判断是否过期，如果过期的话就就重新发送请求，如果还没过期就渲染localStrong里面的数据
             if (Date.now() - localData.outTime < 10000000) {
+                $("body").addClass("loadding");
                 // 将localStorang；里的数据返回给globalData，用于渲染数据
                 globalData = localData.globalData;
                 renderLeftMenu();
@@ -60,6 +64,7 @@ $(function () {
             count--;
             if (count == 0) {
                 var yourScroll = new IScroll('.cateRight');
+                $("body").removeClass("loadding");
             }
 
         })
