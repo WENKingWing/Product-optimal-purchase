@@ -1,18 +1,6 @@
 $(function () {
     renderLocalStorang();
-    // 获取地址栏携带的参数
-    function getUrl(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return decodeURI(r[2]);
-        return null;
-    }
-    // 重置a的href
-    mui("body").on("tap", "a", function (e) {
-        e.preventDefault()
-        location.href = this.href;
 
-    })
     // 初始化页面滚动
     mui('.mui-scroll-wrapper').scroll({
         deceleration: 0.0005
@@ -27,7 +15,7 @@ $(function () {
     //设置携带的参数
     var queryobj = {
         query: '',
-        cid: getUrl("cid"),
+        cid: $.getUrl("cid"),
         pagenum: 0,
         pagesize: 10
     }
@@ -35,7 +23,6 @@ $(function () {
     //编写ajax请求函数
     function renderGoodsList(callback) {
         $.get("goods/search", queryobj, function (res) {
-
             if (res.meta.status === 200) {
                 callback(res);
             }
@@ -54,15 +41,17 @@ $(function () {
                 contentover: "释放立即刷新", //可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
                 contentrefresh: "正在刷新...", //可选，正在刷新状态时，下拉刷新控件上显示的标题内容
                 callback: function () {
+                    //重置页面的码数,下拉之后使页面显示第一页的内容
                     queryobj.pagenum = 0;
                     renderGoodsList(function (res) {
                         var html = template("goodsListTemp", {
                             list: res.data.goods
                         });
                         $(".pyg_goodsList").html(html);
+                        //获取数据并渲染页面结构之后停止下拉刷新
                         mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+                        // 初始化组件,重置原来的功能
                         mui('#pullrefresh').pullRefresh().refresh(true);
-
                     })
                 }
             },
@@ -79,12 +68,12 @@ $(function () {
                                 list: res.data.goods
                             });
                             $(".pyg_goodsList").append(html);
+                            // 结束加载更多，渲染页面之后停止加载更多功能
                             mui('#pullrefresh').pullRefresh().endPullupToRefresh();
-
                         } else {
+                            // 如果没有数据的话结束加载更多,没有数据传入true,反之传入false
                             mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
                         }
-
                     })
 
                 }

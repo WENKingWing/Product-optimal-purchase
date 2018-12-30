@@ -1,0 +1,12 @@
+@import '_reset.scss';
+@import './_common.scss';
+.pyg_view{
+    padding:10px;
+    .button_groud{
+        margin-top:20px;
+        .pyg_register,.pyg_login{
+            width: 100%;
+            margin:10px 0;
+        }
+    }
+}

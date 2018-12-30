@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../lib/mui/css/mui.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../styles/goodsDetail.css">
+    <title>商品列表</title>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-action-menu mui-icon-back mui-pull-left" href='javascript:history.back()'></a>
+        <h1 class="mui-title">商品详情</h1>
+    </header>
+    <div class="pyg_view">
+        <!-- 轮播图 -->
+       
+        </div>
+    </div>
+    <!-- 尾部菜单栏 -->
+    <div class="pyg_footer">
+        <a href="javascript:;">
+            <span class="mui-icon mui-icon-weixin"></span>
+            <div>微信客服</div>
+        </a>
+        <a href="javascript:;">
+            <span class="mui-icon mui-icon-phone"></span>
+            <div>电话客服</div>
+        </a>
+        <a href="javascript:;" class="mui-btn mui-btn-warning buy_now">
+           立即购买
+        </a>
+        <a href="#" class="mui-btn mui-btn-danger join_cart">
+            加入购物车
+        </a>
+    </div>
+
+</body>
+<!-- 轮播图渲染引擎 -->
+<script type="text/template" id="goodsDetailTemp">
+    <div class="mui-slider ">
+        <div class="mui-slider-group mui-slider-loop">
+            <!--支持循环，需要重复图片节点-->
+            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img     src="{{pics[pics.length-1].pics_big_url}}" /></a></div>
+            <!-- 模板引擎中可以根据键获取对应的值 -->
+            {{each pics value index}}
+            <div class="mui-slider-item"><a href="#"><img src="{{value.pics_big_url}}"     /></a></div>
+            {{/each}}
+            <!--支持循环，需要重复图片节点-->
+            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img     src="{{pics[0].pics_big_url}}" /></a></div>
+            </div>
+            
+        <div class="mui-slider-indicator">
+                {{each pics value index}}
+                <div class="mui-indicator {{index==0?'mui-active':''}}"></div>
+                {{/each}}
+        </div>
+    </div>
+
+
+        <div class="goods_message">
+            <p class="pyg_goodsname">{{goods_name}}</p>
+        <p class="pyg_price">￥{{goods_price}}</p>
+        <ul class="pyg_specification">
+            <li><span>已选</span><span>白色</span></li>
+            <li><span>送至</span><span>上海市</span></li>
+            <li><span>今日促销</span><span>是</span></li>
+            <li><span>运费</span><span>免运费</span></li>
+        </ul>
+        </div>
+
+
+
+        <div class="mui-content">
+                <div>
+                    <div id="segmentedControl" class="mui-segmented-control">
+                        <a class="mui-control-item mui-active" href="#item1">
+                    图文详情
+                </a>
+                        <a class="mui-control-item" href="#item2">
+                  规格参数
+                </a>
+                    </div>
+                </div>
+                <div>
+                    <div id="item1" class="mui-control-content mui-active">
+                       {{@goods_introduce}}
+                    </div>
+                    <div id="item2" class="mui-control-content">
+                        <ul>
+                            {{each attrs value index}}
+                            <li>
+                                <div class="attr_title">{{value.attr_name.split("-")[0]}}</div>
+                                <div class="attr-content"><span>{{value.attr_name.split("-")[1]}}</span> <span>{{value.attr_value}}</span></div>
+                            </li>
+                            {{/each}}
+                        </ul> 
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<script src="../lib/arttemplate/template-web.js"></script>
+<script src="../lib/mui/js/mui.js"></script>
+<script src="../lib/zepto/zepto.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/goodsDetail.js"></script>
+
+</html>
